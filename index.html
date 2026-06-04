@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Answer Sheet</title>
+
+<style>
+    body{
+        margin:0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: #e5e7eb;
+        padding: 20px;
+    }
+
+    .container{
+        max-width: 900px;
+        margin: auto;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 34px;
+        margin-bottom: 5px;
+        color: #38bdf8;
+    }
+
+    h2{
+        text-align: center;
+        font-weight: normal;
+        margin-top: 0;
+        color: #a5f3fc;
+    }
+
+    .card{
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    h4{
+        color: #facc15;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    pre{
+        background: #0b1220;
+        padding: 15px;
+        border-radius: 10px;
+        overflow-x: auto;
+        border-left: 4px solid #38bdf8;
+        color: #d1d5db;
+        line-height: 1.5;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Test Answer Sheet</h1>
+    <h2>Student = Murtaza</h2>
+
+    <div class="card">
+        <h4>Q1. Create Database</h4>
+        <pre>CREATE DATABASE Hospital_DB;</pre>
+    </div>
+
+    <div class="card">
+        <h4>Q2. Create Tables</h4>
+        <pre>
+CREATE TABLE Patients(
+Patient_ID int PRIMARY KEY AUTO_INCREMENT,
+Patient_Name varchar(30),
+Phone_number int UNIQUE,
+Age int NOT Null,
+City text(200)
+);
+
+CREATE TABLE Doctors(
+Doctor_ID int PRIMARY KEY AUTO_INCREMENT,
+Doctor_Name varchar(30),
+Specialization int NOT NULL,
+Email_address text(50) UNIQUE
+);
+
+CREATE TABLE Appointments(
+Appointment_ID int PRIMARY KEY AUTO_INCREMENT,
+Patient_Name varchar(30),
+Doctor_id int UNIQUE,
+Appointments_Date int,
+Consultation_fee text(200) NOT Null
+);
+        </pre>
+    </div>
+
+    <div class="card">
+        <h4>Q3. Insert Records</h4>
+        <pre>
+INSERT INTO doctors (Doctor_Name, Specialization, Email_address)
+VALUES
+('Junaid','Dentist','juni123@gmail.com'),
+('Murtaza','Physiotharapist','murtaza4@gmail.com'),
+('Shahzaib','Eye expert','shahzaib2k5@gmail.com');
+
+INSERT INTO patients (Patient_Name, Phone_number, Age, City)
+VALUES 
+('Daniyal',0332211455,16,'Nigeria'),
+('Sammar',0336212435,17,'Tharri'),
+('Zuhaib',0337515405,21,'Mehar'),
+('Iqbal',0332261857,22,'Larkana'),
+('Usif',0312387454,16,'Radhan');
+
+INSERT INTO appointments (Patient_Name, Doctor_id, Appointments_Date, Consultation_fee)
+VALUES 
+('Daniyal',6,16,2500),
+('Sammar',3,17,2500),
+('Zuhaib',7,21,2000),
+('Iqbal',8,22,3000),
+('Usif',5,16,1500);
+        </pre>
+    </div>
+
+    <div class="card">
+        <h4>Q4. SELECT & WHERE Clause</h4>
+        <pre>
+SELECT * FROM patients;
+
+SELECT * FROM appointments WHERE Consultation_fee > 2000;
+
+SELECT * FROM patients WHERE City = 'Radhan';
+
+SELECT * FROM patients WHERE Age > 15;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h4>Q5. ALTER TABLE</h4>
+        <pre>
+ALTER TABLE patients ADD Height int;
+
+ALTER TABLE patients MODIFY name VARCHAR(100);
+
+ALTER TABLE patients CHANGE Height Weight INT;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h4>Q6. UPDATE & DELETE</h4>
+        <pre>
+UPDATE patients
+SET Weight = 120
+WHERE Patient_ID = 2;
+
+DELETE FROM patients 
+WHERE Patient_ID = 5;
+
+DELETE FROM doctors 
+WHERE Doctor_name = 'Shahzaib';
+        </pre>
+    </div>
+
+</div>
+
+</body>
+</html>
